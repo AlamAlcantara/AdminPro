@@ -8,9 +8,7 @@ import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component
 import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
 
-
 const routes: Routes = [
-
   {
     path:'', 
     component: PagesComponent,
@@ -18,13 +16,12 @@ const routes: Routes = [
       {path:'dashboard', component: DashboradComponent},
       {path:'progress', component: ProgressComponent},
       {path:'graficas1', component: Graficas1Component},
-      {path:'', redirectTo:'/dashboard',pathMatch:'full'},
+      {path:'', redirectTo:'/dashboard',pathMatch:'full'}
     ]
   },
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
   {path:'**', component: NopagefoundComponent}
-
 ];
 
 @NgModule({

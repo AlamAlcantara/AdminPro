@@ -7,6 +7,8 @@ import { PagesModule } from './pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
 import {ChartsModule} from 'ng2-charts';
 
+//servicios
+import {SettingsService} from './services/settings.service';
 
 //componentes
 import { AppComponent } from './app.component';
@@ -26,7 +28,7 @@ import { RegisterComponent } from './login/register.component';
     FormsModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,6 +8,8 @@ import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component
 import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
+import { PromesasComponent } from './pages/promesas/promesas.component';
+import { RxjsComponent } from './pages/rxjs/rxjs.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,8 @@ const routes: Routes = [
       {path:'dashboard', component: DashboradComponent},
       {path:'progress', component: ProgressComponent},
       {path:'graficas1', component: Graficas1Component},
+      {path:'promesas', component: PromesasComponent},
+      {path:'rxjs', component:RxjsComponent},
       {path:'account-settings', component:AccountSettingsComponent},
       {path:'', redirectTo:'/dashboard',pathMatch:'full'}
     ]

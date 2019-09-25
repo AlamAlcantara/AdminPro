@@ -8,7 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import {ChartsModule} from 'ng2-charts';
 
 //servicios
-import {SettingsService} from './services/settings.service';
+// import {  SettingsService, SidebarService, SharedService } from './services/services.index';
+import {ServiceModule} from './services/service.module'
 
 //componentes
 import { AppComponent } from './app.component';
@@ -26,9 +27,10 @@ import { RegisterComponent } from './login/register.component';
     AppRoutingModule,
     PagesModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    ServiceModule
   ],
-  providers: [SettingsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

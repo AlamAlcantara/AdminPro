@@ -7,6 +7,7 @@ import { PagesModule } from './pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
 import {ChartsModule} from 'ng2-charts';
 
+
 //servicios
 // import {  SettingsService, SidebarService, SharedService } from './services/services.index';
 import {ServiceModule} from './services/service.module'

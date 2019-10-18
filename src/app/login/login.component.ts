@@ -5,6 +5,7 @@ import { UsuarioService } from '../services/services.index';
 import { Usuario } from '../models/usuario.model';
 
 declare function init_plugins();
+declare const gapi:any;
 
 @Component({
   selector: 'app-login',
@@ -15,17 +16,44 @@ export class LoginComponent implements OnInit {
 
   recuerdame:boolean = false;
   email:string;
+  auth2:any;
 
   constructor(public router:Router, public _usuarioService:UsuarioService) { }
 
   ngOnInit() {
     init_plugins();
+    this.googleInit();
 
     this.email = localStorage.getItem('email') || '';
 
     if(this.email.length > 0){
       this.recuerdame = true;
     }
+  }
+
+  googleInit(){
+    gapi.load('auth2',()=>{
+      this.auth2 = gapi.auth2.init({
+        client_id:'900586482707-1kktouedin4ne7fee2bebb9k8d2vc9ih.apps.googleusercontent.com',
+        cookie_policy:'single_host_origin',
+        scope:'profile email'
+      });
+
+      this.attachSignIn( document.getElementById('btnGoogle') );
+
+    });
+  }
+
+  attachSignIn(element){
+    this.auth2.attachClickHandler(element,{}, googleUser=>{
+      // let profile = googleUser.getBasicProfile();
+      let token = googleUser.getAuthResponse().id_token;
+      this._usuarioService.loginGoogle(token)
+        .subscribe( resp =>{
+          console.log(resp)
+        });
+      console.log(token);
+    }) 
   }
 
   ingresar( forma:NgForm ){

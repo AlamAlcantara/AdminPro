@@ -36,6 +36,12 @@ export class UsuarioService {
       );
   }
 
+  loginGoogle(token:string){
+    let url = URL_SERVICIOS + '/login/google';  
+
+    return this.httpClient.post(url,{token:token});
+  }
+
   crearUsuario(usuario:Usuario){
     let url = URL_SERVICIOS+'/usuarios';
 

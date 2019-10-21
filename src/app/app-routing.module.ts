@@ -10,11 +10,13 @@ import { RegisterComponent } from './login/register.component';
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
 import { PromesasComponent } from './pages/promesas/promesas.component';
 import { RxjsComponent } from './pages/rxjs/rxjs.component';
+import { LoginGuardGuard } from './services/services.index';
 
 const routes: Routes = [
   {
     path:'', 
     component: PagesComponent,
+    canActivate: [LoginGuardGuard],
     children: [
       {path:'dashboard', component: DashboradComponent, data: {titulo:'Dashboard'}},
       {path:'progress', component: ProgressComponent, data: {titulo:'Progress'}},

@@ -16,6 +16,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         SharedModule,
         PagesRoutingModule,
         FormsModule,
-        ChartsModule
+        ChartsModule,
+        PipesModule
     ]
 })
 

@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { SharedModule } from '../shared/shared.module';
 import {PagesRoutingModule} from './pages-routes.module';
 import {FormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common';
 // import {ChartsModule} from 'ng2-charts';
 
 import { PagesComponent } from './pages.component';
@@ -18,7 +19,6 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { ProfileComponent } from './profile/profile.component';
-
 
 @NgModule({
     declarations: [
@@ -43,7 +43,8 @@ import { ProfileComponent } from './profile/profile.component';
         PagesRoutingModule,
         FormsModule,
         ChartsModule,
-        PipesModule
+        PipesModule,
+        CommonModule
     ]
 })
 

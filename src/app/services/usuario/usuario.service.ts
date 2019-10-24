@@ -116,7 +116,7 @@ export class UsuarioService {
       console.log(resp);
       
     }).catch(error =>{
-      console.log(error);
+      console.log(error); 
     })
   }
 }

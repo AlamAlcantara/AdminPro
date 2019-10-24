@@ -34,13 +34,12 @@ export class ProfileComponent implements OnInit {
         })
   }
 
-  seleccionImagen(archivo:File){
+  seleccionImagen(archivo:File){ 
     if(!archivo){
       this.imagenASubir = null;
       return;
     }
-
-    console.log(event);
+    // console.log(event);
     this.imagenASubir = archivo;
   }
 

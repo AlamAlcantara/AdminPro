@@ -14,6 +14,7 @@ export class SubirArchivoService {
       let xhr = new XMLHttpRequest();
       let url = `${URL_SERVICIOS}/upload/${tipo}/${id}`;
 
+      console.log(archivo);
       formdata.append('imagen',archivo,archivo.name);
   
       xhr.onreadystatechange = function(){
@@ -29,6 +30,7 @@ export class SubirArchivoService {
       }
 
       xhr.open('PUT',url,true);
+      xhr.send(formdata);
 
     });
 

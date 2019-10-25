@@ -8,7 +8,8 @@ import {
   SharedService,
   UsuarioService,
   LoginGuardGuard,
-  SubirArchivoService
+  SubirArchivoService,
+  HospitalService
 } from './services.index';
 import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
 
@@ -24,7 +25,8 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
     SharedService,
     UsuarioService,
     SubirArchivoService,
-    ModalUploadService
+    ModalUploadService,
+    HospitalService
   ]
 })
 export class ServiceModule { }

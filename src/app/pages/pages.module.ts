@@ -11,6 +11,7 @@ import { DashboradComponent } from './dashborad/dashborad.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { ProgressComponent } from './progress/progress.component';
 import {UsuariosComponent} from './usuarios/usuarios.component';
+import {HospitalesComponent} from './hospitales/hospitales.component';
 
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
@@ -35,7 +36,8 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
         RxjsComponent,
         ProfileComponent,
         UsuariosComponent,
-        ModalUploadComponent
+        ModalUploadComponent,
+        HospitalesComponent
     ],
     exports:[
         DashboradComponent,

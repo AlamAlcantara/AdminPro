@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HospitalService } from 'src/app/services/services.index';
+import Hospital from 'src/app/models/hospital.model';
 
 @Component({
   selector: 'app-hospitales',
@@ -9,6 +10,8 @@ import { HospitalService } from 'src/app/services/services.index';
 export class HospitalesComponent implements OnInit {
 
   idHospitalABuscar:string;
+  hospitales:Hospital[] = [];
+  totalRegistros: number = 0;
 
   constructor( public hospitalesService:HospitalService ) { }
 
@@ -20,6 +23,8 @@ export class HospitalesComponent implements OnInit {
     this.hospitalesService.cargarHospitales()
     .subscribe((resp:any)=>{
       console.log(resp);
+      this.hospitales = resp.hospitales;
+      this.totalRegistros = resp.total;
     })
   }
 
@@ -30,6 +35,32 @@ export class HospitalesComponent implements OnInit {
     })
   }
 
-  
+  crearHospital(nombreHospital:string){
+    this.hospitalesService.crearHospital(nombreHospital)
+      .subscribe((resp:any)=>{
+        console.log(resp);
+      })
+  }
+
+  borrarHospital(id:string){
+    this.hospitalesService.borrarHosital(id)
+    .subscribe((resp:any)=>{
+      console.log(resp);
+    })
+  }
+
+  buscarHospitalPorNombre(nombreHospital:string){
+    this.hospitalesService.buscarHospitalPorNombre(nombreHospital)
+      .subscribe((resp:any)=>{
+        console.log(resp);
+      })
+  }
+
+  actualizarHospital(hospital:Hospital){
+    this.hospitalesService.actualizarHospital(hospital)
+      .subscribe((resp:any)=>{
+        console.log(resp);
+      })
+  }
 
 }

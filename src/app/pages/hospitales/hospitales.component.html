@@ -1,1 +1,71 @@
-<p>hospitales works!</p>
+<div class="row animated fadeInDown">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input #input type="text" placeholder="Buscar hospitales..." class="form-control">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row animated fadeInDown">
+    <div class="col-sm-12">
+        <div class="alert alert-warning text-center">
+            <strong>Cargando</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
+        </div>
+        
+
+    <div class="row animated fadeInDown">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-2 ml-auto">
+                                <h1 (click)="modalCrearHospital()" class="badge badge-pill badge-primary pointer p-2"><i class="mdi mdi-plus solid"></i> Crear Hospital</h1>
+                            </div>
+                        </div>
+                        <h3 class="card-title">Hospitales registrados  (<small> {{totalRegistros}} </small>) </h3>
+    
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Foto</th>
+                                    <th>Hospital</th>
+                                    <th>Funciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let hospital of hospitales" >
+                                    <td class="w70"> <img [src]="hospital.img | imagen:'hospital'" class="img-50 img-circle pointer" (click)="mostrarModal(hospital._id)"> </td>
+                                    <td> <input type="text" [(ngModel)]="hospital.nombre" class="form-control">  </td>
+                                    <td>
+                                        <button class="btn btn-primary" (click)="actualizarHospital( hospital )" >
+                                            <i class="fa fa-save"></i>
+                                        </button>
+                                        <button (click)="borrarHospital( hospital )" class="btn btn-danger ml-2">
+                                            <i class="fa fa-trash-o"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button (click)="cambiarDesde(-5)" class="btn btn-secondary">
+                            Anteriores
+                        </button>
+
+                        <button [disabled]="!masRegistros" (click)="cambiarDesde(5)" class="btn btn-secondary ml-2">
+                            Siguientes
+                        </button>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

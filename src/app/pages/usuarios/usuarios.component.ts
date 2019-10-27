@@ -67,7 +67,7 @@ export class UsuariosComponent implements OnInit {
       if (borrar) {
         this._usuarioSerice.borrarUsuario(usuario._id)
           .subscribe((resp:any)=>{
-            this.cargarUsuarios();
+            this.cargarUsuarios(); 
           })
       }
     });
@@ -80,7 +80,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   mostrarModal(id:string){
-    this.modalUploadService.mostrarModal('usuarios',id);
+    this.modalUploadService.mostrarModal('usuarios',id); 
   }
 
 }

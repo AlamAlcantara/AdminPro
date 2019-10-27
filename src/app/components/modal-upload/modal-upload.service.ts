@@ -3,7 +3,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ModalUploadService {
+export class ModalUploadService { 
 
   public tipo:string;
   public id:string;

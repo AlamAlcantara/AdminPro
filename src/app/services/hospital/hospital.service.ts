@@ -11,8 +11,8 @@ export class HospitalService {
 
   constructor(public httpClient:HttpClient, public usuarioService:UsuarioService) { }
 
-  cargarHospitales(){
-    let url = `${URL_SERVICIOS}/hospitales`;
+  cargarHospitales(desde:number = 0){
+    let url = `${URL_SERVICIOS}/hospitales?desde=${desde}`;
 
     return this.httpClient.get(url);  
   }

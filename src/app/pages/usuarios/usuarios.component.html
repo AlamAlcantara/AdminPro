@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <input #input type="text" placeholder="Buscar usuarios..." class="form-control">
+                <input #input type="text" (keyup)="buscarUsuario(input.value)" placeholder="Buscar usuarios..." class="form-control">
             </div>
         </div>
     </div>

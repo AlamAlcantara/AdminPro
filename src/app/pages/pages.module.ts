@@ -22,6 +22,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { ProfileComponent } from './profile/profile.component';
 import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+import { MedicosComponent } from './medicos/medicos.component';
+import { MedicoComponent } from './medicos/medico.component';
 
 @NgModule({
     declarations: [
@@ -37,7 +39,9 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
         ProfileComponent,
         UsuariosComponent,
         ModalUploadComponent,
-        HospitalesComponent
+        HospitalesComponent,
+        MedicosComponent,
+        MedicoComponent
     ],
     exports:[
         DashboradComponent,

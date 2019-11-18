@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from 'src/app/config/config';
 import { UsuarioService } from '../usuario/usuario.service';
 import Hospital from 'src/app/models/hospital.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +53,18 @@ export class HospitalService {
       img:hospital.img,
       usuario:hospital.usuario
     });
+
+  }
+
+  buscarHospital(termino:string){
+    let url = `${URL_SERVICIOS}/busqueda/coleccion/hospitales/${termino}`;
+
+    return this.httpClient.get(url)
+    .pipe(
+      map((resp:any)=>{
+        return resp.hospitales;
+      })
+    );
 
   }
 }

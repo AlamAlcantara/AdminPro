@@ -83,4 +83,17 @@ export class UsuariosComponent implements OnInit {
     this.modalUploadService.mostrarModal('usuarios',id); 
   }
 
+  buscarUsuario(termino:string){
+
+    if(termino.length <= 0){
+      this.cargarUsuarios();
+      return;
+    }
+    this._usuarioSerice.buscarUsuario(termino)
+    .subscribe((resp:any)=>{
+      this.usuarios = resp;
+    })
+
+  }
+
 }

@@ -1,0 +1,58 @@
+<div class="row animated fadeInDown">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input #input type="text" (keyup)="buscarMedico(input.value)" placeholder="Buscar medico..." class="form-control">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-2 ml-auto">
+                        <a [routerLink]="['/medico','nuevo']" 
+                                routerLinkActive="router-link-active"  
+                                class="badge badge-pill badge-primary pointer p-2">
+                                <i class="mdi mdi-plus solid"></i> Crear Medico</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h3 class="card-title">Medicos registrados (<small> {{totalRegistros}} </small>) </h3>
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Foto</th>
+                                <th>Medico</th>
+                                <th>Hospital</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let medico of medicos">
+                                <td> <img [src]="medico.img | imagen:'medico'" class="img-50 img-circle pointer" alt=""> </td>
+                                <td> {{ medico.nombre }} </td>
+                                <td> {{ medico.hospital.nombre }} </td>
+                                <td>
+                                    <button class="btn btn-primary" [routerLink]="['/medico',medico._id]" >
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                    <button (click)="borrarMedico( medico )" class="btn btn-danger ml-2">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -14,6 +14,8 @@ import { LoginGuardGuard } from './services/services.index';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { HospitalesComponent } from './pages/hospitales/hospitales.component';
+import { MedicosComponent } from './pages/medicos/medicos.component';
+import { MedicoComponent } from './pages/medicos/medico.component';
 
 const routes: Routes = [
   {
@@ -30,7 +32,9 @@ const routes: Routes = [
       {path:'account-settings', component:AccountSettingsComponent, data: {titulo:'Ajustes de Tema'}},
       //Mantenimiento
       {path:'usuarios', component: UsuariosComponent, data: {titulo:'Mantenimiento de Usuarios'}},
-      {path:'hospitales', component: HospitalesComponent, data: {titulo:'Mantenimiento de hospitales'}},
+      {path:'hospitales', component: HospitalesComponent, data: {titulo:'Mantenimiento de Hospitales'}},
+      {path:'medicos', component: MedicosComponent, data: {titulo:'Mantenimiento de Médicos'}},
+      {path:'medico/:id', component: MedicoComponent, data: {titulo:'Actualizar Médico'}},
       {path:'', redirectTo:'/dashboard',pathMatch:'full'}
     ]
   },

@@ -132,4 +132,16 @@ export class HospitalesComponent implements OnInit {
     })
   }
 
+  buscarHospitalPorTermino(termino:string){
+    
+    if(termino.length <= 0){
+      this.cargarHospitales();
+      return;
+    }
+    this.hospitalesService.buscarHospital(termino)
+    .subscribe((resp:any)=>{
+      this.hospitales = resp;
+    })
+  }
+
 }

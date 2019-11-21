@@ -68,7 +68,8 @@ export class MedicoService {
     return this.http.post(url,medico).pipe(
         map((resp:any)=>{
           swal('Medico Creado',medico.nombre,'success');
-          return resp.medico;
+          console.log('respuesta',resp)
+          return resp.medicoCreado;
         })
     )
 

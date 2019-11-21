@@ -1,12 +1,9 @@
-import { Usuario } from './usuario.model';
-import Hospital from './hospital.model';
-
 export default class Medico{
     constructor(
         public nombre?: string,
         public img?: string,
-        public usuario?: Usuario,
-        public hospital?: Hospital,
+        public usuario?: string,
+        public hospital?: string,
         public _id?: string
     ) { }
 }

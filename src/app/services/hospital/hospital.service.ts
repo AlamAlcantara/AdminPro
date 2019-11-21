@@ -19,9 +19,10 @@ export class HospitalService {
   }
 
   obtenerHospital(id:string){
-    let url = `${URL_SERVICIOS}/hospitales/${id}`;
+    let url = `${URL_SERVICIOS}/hospitales/hospital/${id}`;
 
-    return this.httpClient.get(url);
+    return this.httpClient.get(url)
+                .pipe( map( (resp:any) => resp ))
   }
 
   crearHospital(nombre:string){

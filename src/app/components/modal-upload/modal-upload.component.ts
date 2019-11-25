@@ -45,7 +45,7 @@ export class ModalUploadComponent implements OnInit {
         .then((resp:any)=>{
           console.log(resp);
 
-          this.modalUploadService.notificacion.emit(resp); 
+          this.modalUploadService.notificacion.emit(resp);  
           this.modalUploadService.ocultarModal();
         }).catch(error =>{
           console.log(error);

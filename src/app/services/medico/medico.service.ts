@@ -47,6 +47,16 @@ export class MedicoService {
     );
   }
 
+  obtenerMedicoPorId(id:string){
+    let url = `${URL_SERVICIOS}/medicos/${id}`;
+
+    return this.http.get(url).pipe(
+      map((resp:any)=>{
+        return resp.medico
+      })
+    )
+  }
+
   borrarMedico(id:string){
     let usuarioToken = this.usuariosService.token;
     let url = `${URL_SERVICIOS}/medicos/${id}?token=${usuarioToken}`;
@@ -63,15 +73,30 @@ export class MedicoService {
 
   guardarMedico(medico:Medico){
     let token = this.usuariosService.token;
-    let url = `${URL_SERVICIOS}/medicos?token=${token}`;
 
-    return this.http.post(url,medico).pipe(
+    if(medico._id){
+      //actualizando
+      let url = `${URL_SERVICIOS}/medicos/${medico._id}?token=${token}`;
+
+      return this.http.put(url,medico).pipe(
         map((resp:any)=>{
-          swal('Medico Creado',medico.nombre,'success');
-          console.log('respuesta',resp)
+          swal('Medico Actualizado',medico.nombre,'success');
+          console.log('medico actualizado',resp)
           return resp.medicoCreado;
         })
-    )
+      );
+    }else{
+      //creando
+      let url = `${URL_SERVICIOS}/medicos?token=${token}`;
+
+      return this.http.post(url,medico).pipe(
+        map((resp:any)=>{
+          swal('Medico Creado',medico.nombre,'success');
+          console.log('medico creado',resp)
+          return resp.medicoCreado;
+        })
+      );
+    }
 
   }
 

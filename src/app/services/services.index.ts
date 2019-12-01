@@ -6,3 +6,4 @@ export {UsuarioService} from './usuario/usuario.service';
 export {SubirArchivoService} from './subir-archivo/subir-archivo.service';
 export {HospitalService} from './hospital/hospital.service';
 export {MedicoService} from './medico/medico.service';
+export { AdminGuard } from './admin.guard';

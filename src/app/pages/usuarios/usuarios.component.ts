@@ -3,10 +3,7 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/services.index';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ModalUploadService } from 'src/app/components/modal-upload/modal-upload.service';
-// import swal from 'sweetalert';
-
-declare var swal:any;
-
+import swal  from 'sweetalert'
 
 @Component({
   selector: 'app-usuarios',
@@ -62,7 +59,7 @@ export class UsuariosComponent implements OnInit {
       icon: 'warning',
       buttons: true,
       dangerMode: true,
-    })
+    } as any)
     .then((borrar) => {
       if (borrar) {
         this._usuarioSerice.borrarUsuario(usuario._id)

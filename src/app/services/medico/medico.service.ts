@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from 'src/app/config/config';
 import { map } from 'rxjs/operators';
 import { UsuarioService } from '../usuario/usuario.service';
-import swal from 'sweetalert';
 import Medico from 'src/app/models/medico.model';
+
+import swal  from 'sweetalert'
 
 @Injectable({
   providedIn: 'root'

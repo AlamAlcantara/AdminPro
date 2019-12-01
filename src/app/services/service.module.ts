@@ -9,6 +9,7 @@ import {
   UsuarioService,
   LoginGuardGuard,
   AdminGuard,
+  VerificarTokenGuard,
   SubirArchivoService,
   HospitalService,
   MedicoService
@@ -32,7 +33,8 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
     HospitalService,
     MedicoService,
     LoginGuardGuard,
-    AdminGuard
+    AdminGuard,
+    VerificarTokenGuard
   ]
 })
 export class ServiceModule { }

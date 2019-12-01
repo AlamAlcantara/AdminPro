@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from 'src/app/models/usuario.model';
 import { URL_SERVICIOS } from 'src/app/config/config';
-
 import { map, catchError } from 'rxjs/operators';
 import {throwError} from 'rxjs';
-import swal from 'sweetalert';
 import { Router } from '@angular/router';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
+
+import swal  from 'sweetalert'
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +19,24 @@ export class UsuarioService {
   menu: any[] = [];
 
   constructor(public httpClient: HttpClient, public router:Router, public subirArchivoService:SubirArchivoService) {
-    // console.log('Servicio de usuario listo');
     this.cargarStorage();
+  }
+
+  renuevaToken(){
+    let url = `${URL_SERVICIOS}/login/renuevatoken?token=${this.token}`;
+
+   return this.httpClient.get(url).pipe(
+      map((resp:any)=>{
+        this.token = resp.token;
+        localStorage.setItem('token',this.token.toString());
+        return true;
+      })
+    ).pipe(
+      catchError((error:any)=>{
+        swal('Error al renovar token', 'No se pudo renovar token','error');
+        return throwError(error)
+      })
+    )
   }
 
   login(usuario: Usuario, recordar: boolean = false) {
@@ -103,7 +119,6 @@ export class UsuarioService {
           swal('Usuario Creado!', `Bienvenido ${usuario.nombre} ---- ${usuario.email}`, 'success')
         })
       ).pipe(catchError((error:any) =>{
-        console.log('ERROR',error)
         swal(error.error.mensaje, error.error.error.message,'error');
         return throwError(error);
       }));;
@@ -129,14 +144,13 @@ export class UsuarioService {
 
     this.subirArchivoService.subirArchivo(archivo,'usuarios',id)
     .then( (resp:any) =>{
-      console.log(resp);
       this.usuario.img = resp.usuario.img;
       swal('Imagen Actualizada',this.usuario.nombre,'success');
 
       this.guardarStorage(id,this.token,this.usuario,this.menu);
       
     }).catch(error =>{
-      console.log(error); 
+      swal('Error al actualizar imagen ',error,'error');
     })
   }
 

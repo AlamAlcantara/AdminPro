@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
-import swal from 'sweetalert';
 import { UsuarioService } from '../services/services.index';
 import { Usuario } from '../models/usuario.model';
 import { Router } from '@angular/router';
+import swal  from 'sweetalert'
 
 declare function init_plugins();
 

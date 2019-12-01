@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/services.index';
-import { emit } from 'cluster';
-import swal from 'sweetalert';
+import swal  from 'sweetalert'
 
 @Component({
   selector: 'app-profile',
